@@ -1,2 +1,7 @@
 Sample files/
 temp_compressed.jpg
+# Python bytecode cache files
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
