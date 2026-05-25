@@ -4,4 +4,5 @@ temp_compressed.jpg
 __pycache__/
 *.pyc
 *.pyo
-*.pydobvioscopic_cases.db
+*.pyd
+obvioscopic_cases.db
