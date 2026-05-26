@@ -33,3 +33,15 @@ Unlike black-box machine learning models, this tool relies on transparent, deter
 Install the core computational and forensic visualization libraries directly using `pip`:
 ```bash
 pip install opencv-python numpy Pillow pdf2image
+```
+
+### 2. Core System Dependency: Poppler (Required for PDF Ingestion)
+Because PDF documents must be unpacked and converted into visual image arrays for layout tracking, the open-source compiled binary engine **Poppler** is required. Without it, `pdf2image` will throw a tracking initialization crash.
+
+#### 🪟 Windows Setup (Manual Extraction)
+1. Download the latest compiled binaries zip archive from [@Archives: Poppler for Windows](https://github.com/oschwartz10612/poppler-windows/releases/).
+2. Extract the folder to a permanent location outside your Git project root directory (e.g., `G:\poppler-windows\`).
+3. Open **`ui.py`** and point the global routing path string directly to your extracted `bin` directory:
+   Eg:
+   ```python
+   POPPLER_BIN_PATH = r"G:\poppler-windows\Library\bin"
