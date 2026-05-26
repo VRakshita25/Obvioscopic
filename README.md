@@ -10,7 +10,7 @@ Unlike black-box machine learning models, this tool relies on transparent, deter
 
 ### 1. Error Level Analysis (ELA)
 * **Purpose:** Detects digital manipulation (copy-paste modifications, digitally added text, spliced signatures).
-* **How it works:** JPEG images compress pixels in 8x8 blocks at a uniform rate. When an image is modified and resaved, the edited section introduces a different level of compression error compared to the original background data. ELA resaves the image at a known quality level and calculates the absolute pixel difference to make edited regions glow.
+* **How it works:** JPEG images compress pixels in $8 \times 8$ blocks at a uniform rate. When an image is modified and resaved, the edited section introduces a different level of compression error compared to the original background data. ELA resaves the image at a known quality level and calculates the absolute pixel difference to make edited regions glow.
 
 ### 2. Machine Identification Code (MIC) Isolation
 * **Purpose:** Exposes printer tracking dots and contextual edge matrix anomalies.
@@ -20,11 +20,16 @@ Unlike black-box machine learning models, this tool relies on transparent, deter
 * **Purpose:** Isolates pixel noise anomalies and automatically flags clusters of high-frequency digital manipulation.
 * **How it works:** Analyzes localized noise distribution across the document matrix. When manual brush strokes, digital scribbles, or sharp pixel injections break the document's original ambient noise signature, the system calculates a strict density-mapped bounding box to accurately flag the compromised coordinates without triggering false positives on natural image contours.
 
+### 4. Advanced Case Management Workspace (New)
+* **Persistent Database Logging:** Automatically tracks case profiles, target paths, and ingestion timestamps using a local SQLite architecture.
+* **Collapsible Asset Sidebar:** Supports analyzing multipage documents natively via a hidden/expandable layout drawer featuring reactive miniature crop thumbnails.
+* **Multi-Asset Ingestion Pipeline:** Allows investigators to inject supplemental files (`.jpg`, `.png`, `.pdf`, `.tif`) straight into an active case layer mid-investigation.
+
 ---
 
 ## 🛠️ Prerequisites & Installation
 
-Make sure you have Python 3.x installed on your environment. You can install the core computational and forensic visualization dependencies directly via pip:
-
+### 1. Python Dependencies
+Install the core computational and forensic visualization libraries directly using `pip`:
 ```bash
-pip install opencv-python numpy Pillow
+pip install opencv-python numpy Pillow pdf2image
