@@ -1,4 +1,4 @@
-# Obvioscopic 🔍
+# Obvioscopic (Obviously Microscopic) 🔍
 
 Obvioscopic is a digital document forensics and investigation toolkit built to identify document forgery, digital tampering, and printer source attribution. 
 
